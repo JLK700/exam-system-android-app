@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ExamSystem</string>
+    <string name="start_fragment">Start Fragment</string>
+    <string name="startFragment_name">Name</string>
+    <string name="startFragment_surname">Surname</string>
+    <string name="startFragment_email">Email</string>
+    <string name="startFragment_code">Test Code</string>
+    <string name="startFragment_begin">Begin Test</string>
+    <string name="startFragment_welcomeMessage">Please enter your name, surename, email and proper TestCode</string>
+    <string name="testFragment_previous">Previous</string>
+    <string name="testFragment_next">Next</string>
+    <string name="button_testFragment_endTest">End Test</string>
+</resources>

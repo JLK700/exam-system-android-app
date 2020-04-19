@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.uj.bachelor_jlk700.examsystem.screens.Start.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.uj.bachelor_jlk700.examsystem.screens.Test.TestFragment"
+        android:label="test_fragment"
+        tools:layout="@layout/test_fragment" >
+        <action
+            android:id="@+id/action_testFragment_to_endFragment"
+            app:destination="@id/endFragment" />
+        <argument
+            android:name="userInfo"
+            app:argType="string"
+            android:defaultValue="error" />
+    </fragment>
+    <fragment
+        android:id="@+id/endFragment"
+        android:name="com.uj.bachelor_jlk700.examsystem.screens.End.EndFragment"
+        android:label="end_fragment"
+        tools:layout="@layout/end_fragment" >
+        <action
+            android:id="@+id/action_endFragment_to_startFragment2"
+            app:destination="@id/startFragment" />
+        <argument
+            android:name="answeredTest"
+            app:argType="string"
+            android:defaultValue="error" />
+    </fragment>
+</navigation>
