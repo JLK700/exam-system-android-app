@@ -10,4 +10,6 @@
     <string name="testFragment_previous">Previous</string>
     <string name="testFragment_next">Next</string>
     <string name="button_testFragment_endTest">End Test</string>
+    <string name="testFragment_questionCounter">Question:</string>
+    <string name="endFragment_back">BACK</string>
 </resources>

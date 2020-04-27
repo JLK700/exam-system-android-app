@@ -5,3 +5,5 @@ data class Answer (var a: Boolean,
                    var c: Boolean,
                    var d: Boolean,
                    var e: Boolean)
+
+// val questionId

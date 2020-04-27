@@ -2,6 +2,7 @@ package  com.uj.bachelor_jlk700.examsystem.screens.Start
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,12 +28,16 @@ class StartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val binding: StartFragmentBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.start_fragment,
             container,
             false
         )
+
+        viewModel = ViewModelProviders.of(this).get(StartViewModel::class.java)
+
         binding.button2.setOnClickListener { view: View ->
             val info = UserInformation(
                 binding.editTextStartFragmentName.text.toString(),
@@ -44,12 +49,20 @@ class StartFragment : Fragment() {
             action.userInfo = Gson().toJson(info)
             Navigation.findNavController(view).navigate(action)
         }
+
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(StartViewModel::class.java)
-    }
+    override fun onResume() {
+        super.onResume()
 
+        val preferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        preferences.edit().remove("dontSaveMsg").apply()
+        val json : String? = preferences.getString("interruptedTimeStamp", "")
+        if (json != "") {
+            val action = StartFragmentDirections.actionStartFragmentToTestFragment()
+            action.userInfo = "restore"
+            Navigation.findNavController(view!!).navigate(action)
+        }
+    }
 }
